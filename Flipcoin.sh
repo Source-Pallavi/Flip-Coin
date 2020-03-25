@@ -2,32 +2,62 @@
 echo "Flip coin Simulator"
 echo "Enter the count u want to flip the coin"
 read flip
-hh=0
-tt=0
-th=0
-ht=0
+hhh=0
+ttt=0
+tth=0
+tht=0
+thh=0
+hht=0
+htt=0
+hth=0
 declare -A noOfCounts
 for((i=0;i<flip;i++))
 do
-rm=$((RANDOM%2))
+rm=$((RANDOM%9))
 if [ $rm -eq 0 ]
 then
-((hh++))
+((hhh++))
 elif [ $rm -eq 1 ]
 then 
-((tt++))
+((ttt++))
 elif [ $rm -eq 2 ]
-((th++))
+then
+((tth++))
+elif [ $rm -eq 3 ]
+then 
+((tht++))
+elif [ $rm -eq 4 ]
+((thh++))
+elif [ $rm -eq 5 ]
+then 
+((thh++))
+elif [ $rm -eq 6 ]
+then
+((htt++))
+elif [ $rm -eq 7 ]
+then 
+((hth++))
+elif [ $rm -eq 8 ]
+((hht++))
 else 
-((ht++))
+((tht++))
 fi
 done
-echo "head-head count ="$hh
-echo "tail-tail count ="$tt
-echo "head-tail count ="$ht
-echo "tail-head count ="$th
-echo "Percentage of Tails-tails= "$((100*$tt/$flip))
-echo "Percentage of Heads-heads= "$((100*$hh/$flip))
-echo "Percentage of Tails-tails= "$((100*$th/$flip))
-echo "Percentage of Heads-heads= "$((100*$th/$flip))
+echo "head-head-head count ="$hhh
+echo "tail-tail-tail count ="$ttt
+echo "head-tail-tail count ="$htt
+echo "tail-head-tail count ="$tht
+echo "head-tail-head count ="$hth
+echo "head-head-tail count ="$hht
+echo "head-tail-head count ="$hth
+echo "tail-head-head count ="$thh
+echo "Percentage of Tails-tails= "$((100*$ttt/$flip))
+echo "Percentage of head-head-head= "$((100*$hhh/$flip))
+echo "Percentage of head-tail-tail= "$((100*$htt/$flip))
+echo "Percentage of tail-head-tail= "$((100*$hth/$flip))
+echo "Percentage ofhead-tail-head= "$((100*$hth/$flip))
+echo "Percentage of head-head-tail= "$((100*$hht/$flip))
+echo "Percentage of head-tail-head= "$((100*$hth/$flip))
+echo "Percentage of tail-head-head= "$((100*$thh/$flip))
+
 
