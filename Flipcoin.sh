@@ -63,11 +63,6 @@ then
 elif [ $rm -eq 6 ]
 then
 ((htt++))
-elif [ $rm -eq 7 ]
-then 
-((hth++))
-elif [ $rm -eq 8 ]
-((hht++))
 else 
 ((tht++))
 fi
@@ -88,5 +83,27 @@ echo "Percentage ofhead-tail-head= "$((100*$hth/$flip))
 echo "Percentage of head-head-tail= "$((100*$hht/$flip))
 echo "Percentage of head-tail-head= "$((100*$hth/$flip))
 echo "Percentage of tail-head-head= "$((100*$thh/$flip))
+function winning(){
+
+array=($(for size in ${noOfCounts[@]}
+do
+echo $size
+done | sort ))
+echo "sorted value"
+echo ${array[@]}
+lastindex=$((${#array[@]}-1))
+
+MaxWin=${array[$lastindex]}
+for i in ${!noOfCounts[@]}
+do
+ if [ ${noOfCounts[$i]} -eq $MaxWin ]
+ then
+     echo "maximum times win= "$i
+   fi
+done
+}
+
+winning
+
 
 
